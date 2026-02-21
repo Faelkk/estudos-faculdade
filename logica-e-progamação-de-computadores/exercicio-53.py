@@ -44,13 +44,12 @@ def jogoDaVelha():
         tabuleiro[linha][coluna] = jogador_atual
         jogadas += 1
 
-        # Verifica vitória
         if checar_vitoria(tabuleiro, jogador_atual):
             imprimir_tabuleiro(tabuleiro)
             print(f"Parabéns! Jogador {jogador_atual} venceu!")
             break
 
-        # Verifica empate
+
         if jogadas == 9:
             imprimir_tabuleiro(tabuleiro)
             print("Empate! Ninguém venceu.")
