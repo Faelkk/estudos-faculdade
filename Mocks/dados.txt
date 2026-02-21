@@ -1,0 +1,2 @@
+Linha 1: Olá!
+Linha 2: Testando gravação.
