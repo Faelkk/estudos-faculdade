@@ -1,7 +1,7 @@
 ## 📖 Estudos Faculdade
 
 Repositório dedicado aos meus estudos e projetos desenvolvidos ao longo da faculdade.
-Aqui você encontrará exercícios, anotações, projetos práticos e experimentos relacionados às disciplinas do curso.
+Aqui você encontrará exercícios, anotações, projetos e experimentos relacionados às disciplinas do curso.
 
 
 ## 🎯 Objetivo
