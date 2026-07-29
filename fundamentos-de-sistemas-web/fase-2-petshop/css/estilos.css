@@ -311,6 +311,10 @@ a {
     box-shadow: 0 0 0 0.25rem rgb(38 118 108 / 22%);
 }
 
+.was-validated .choice-group:has(input:invalid) > .invalid-feedback {
+    display: block;
+}
+
 .modality-message {
     padding: 0.85rem 1rem;
     margin: 0;
