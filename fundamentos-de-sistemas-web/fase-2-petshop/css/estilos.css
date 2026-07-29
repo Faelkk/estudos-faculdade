@@ -272,6 +272,61 @@ a {
     box-shadow: 0 0.8rem 2rem rgb(23 50 77 / 10%);
 }
 
+.current-time {
+    padding: 0.75rem 1rem;
+    color: var(--brand-navy-dark);
+    background: var(--brand-mist);
+    border-left: 0.3rem solid var(--brand-teal-dark);
+}
+
+.form-section {
+    padding: 0;
+    margin: 2.5rem 0;
+    border: 0;
+}
+
+.form-section > legend {
+    padding-bottom: 0.55rem;
+    margin-bottom: 1.25rem;
+    color: var(--brand-navy);
+    border-bottom: 2px solid var(--brand-gold);
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+
+.choice-group {
+    padding: 0;
+    border: 0;
+}
+
+.form-label,
+.choice-group > legend {
+    font-weight: 700;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+    border-color: var(--brand-teal);
+    box-shadow: 0 0 0 0.25rem rgb(38 118 108 / 22%);
+}
+
+.modality-message {
+    padding: 0.85rem 1rem;
+    margin: 0;
+    background: var(--brand-cream);
+    border: 1px solid #e3c76c;
+    border-radius: 0.5rem;
+}
+
+.result-box {
+    padding: 1.25rem;
+    color: var(--brand-navy-dark);
+    background: #e5f5ed;
+    border: 2px solid #2e7d5a;
+    border-radius: 0.75rem;
+}
+
 .site-footer {
     color: rgb(255 255 255 / 86%);
     background: var(--brand-navy-dark);

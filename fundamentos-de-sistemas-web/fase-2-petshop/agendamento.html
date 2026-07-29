@@ -46,7 +46,255 @@
                 <div class="form-shell">
                     <h2 class="h3">Formulário de atendimento</h2>
                     <p>Os campos marcados com <span aria-hidden="true">*</span><span class="visually-hidden">asterisco</span> são obrigatórios.</p>
-                    <p class="mb-0">O formulário completo será disponibilizado na próxima etapa.</p>
+                    <p class="current-time">Data e horário atuais: <time id="dataHoraAtual">carregando…</time></p>
+
+                    <form id="formAgendamento" class="needs-validation" novalidate>
+                        <fieldset class="form-section">
+                            <legend>Dados do cliente</legend>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="nomeCliente" class="form-label">Nome completo *</label>
+                                    <input type="text" class="form-control" id="nomeCliente" name="nomeCliente" placeholder="Ex.: Rafael Achtenberg" autocomplete="name" minlength="3" required>
+                                    <div class="invalid-feedback">Informe o nome completo.</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="cpf" class="form-label">CPF *</label>
+                                    <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" inputmode="numeric" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" aria-describedby="ajudaCpf" required>
+                                    <div id="ajudaCpf" class="form-text">Digite 11 números, com ou sem pontos e traço.</div>
+                                    <div class="invalid-feedback">Informe um CPF com 11 números.</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="telefone" class="form-label">Telefone *</label>
+                                    <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(51) 99999-9999" autocomplete="tel" pattern="[\d\s()+-]{10,20}" required>
+                                    <div class="invalid-feedback">Informe um telefone válido.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="email" class="form-label">E-mail *</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="nome@exemplo.com" autocomplete="email" required>
+                                    <div class="invalid-feedback">Informe um endereço de e-mail válido.</div>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <label for="endereco" class="form-label">Endereço *</label>
+                                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Rua ou avenida" autocomplete="address-line1" required>
+                                    <div class="invalid-feedback">Informe o endereço.</div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="numero" class="form-label">Número *</label>
+                                    <input type="number" class="form-control" id="numero" name="numero" placeholder="123" min="1" max="999999" required>
+                                    <div class="invalid-feedback">Informe o número.</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="complemento" class="form-label">Complemento</label>
+                                    <input type="text" class="form-control" id="complemento" name="complemento" placeholder="Apartamento, bloco ou referência" autocomplete="address-line2">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="bairro" class="form-label">Bairro *</label>
+                                    <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Nome do bairro" required>
+                                    <div class="invalid-feedback">Informe o bairro.</div>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <label for="cidade" class="form-label">Cidade *</label>
+                                    <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Porto Alegre" autocomplete="address-level2" required>
+                                    <div class="invalid-feedback">Informe a cidade.</div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="estado" class="form-label">Estado *</label>
+                                    <select class="form-select" id="estado" name="estado" autocomplete="address-level1" required>
+                                        <option value="">Selecione</option>
+                                        <option value="AC">AC</option>
+                                        <option value="AL">AL</option>
+                                        <option value="AP">AP</option>
+                                        <option value="AM">AM</option>
+                                        <option value="BA">BA</option>
+                                        <option value="CE">CE</option>
+                                        <option value="DF">DF</option>
+                                        <option value="ES">ES</option>
+                                        <option value="GO">GO</option>
+                                        <option value="MA">MA</option>
+                                        <option value="MT">MT</option>
+                                        <option value="MS">MS</option>
+                                        <option value="MG">MG</option>
+                                        <option value="PA">PA</option>
+                                        <option value="PB">PB</option>
+                                        <option value="PR">PR</option>
+                                        <option value="PE">PE</option>
+                                        <option value="PI">PI</option>
+                                        <option value="RJ">RJ</option>
+                                        <option value="RN">RN</option>
+                                        <option value="RS">RS</option>
+                                        <option value="RO">RO</option>
+                                        <option value="RR">RR</option>
+                                        <option value="SC">SC</option>
+                                        <option value="SP">SP</option>
+                                        <option value="SE">SE</option>
+                                        <option value="TO">TO</option>
+                                    </select>
+                                    <div class="invalid-feedback">Selecione o estado.</div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="cep" class="form-label">CEP *</label>
+                                    <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000" inputmode="numeric" autocomplete="postal-code" pattern="\d{5}-?\d{3}" required>
+                                    <div class="invalid-feedback">Informe um CEP com 8 números.</div>
+                                </div>
+                            </div>
+
+                            <fieldset class="choice-group mt-4">
+                                <legend class="form-label">Sexo *</legend>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" id="sexoFeminino" value="feminino" required>
+                                    <label class="form-check-label" for="sexoFeminino">Feminino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" id="sexoMasculino" value="masculino">
+                                    <label class="form-check-label" for="sexoMasculino">Masculino</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexo" id="sexoOutro" value="outro">
+                                    <label class="form-check-label" for="sexoOutro">Outro ou prefiro não informar</label>
+                                </div>
+                                <div class="invalid-feedback">Selecione uma opção.</div>
+                            </fieldset>
+
+                            <fieldset class="choice-group mt-4">
+                                <legend class="form-label">Preferência de contato</legend>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="contatoTelefone" name="preferenciaContato" value="telefone">
+                                    <label class="form-check-label" for="contatoTelefone">Telefone</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="contatoEmail" name="preferenciaContato" value="email">
+                                    <label class="form-check-label" for="contatoEmail">E-mail</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="contatoMensagem" name="preferenciaContato" value="mensagem">
+                                    <label class="form-check-label" for="contatoMensagem">Mensagem</label>
+                                </div>
+                            </fieldset>
+                        </fieldset>
+
+                        <fieldset class="form-section">
+                            <legend>Dados do pet</legend>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="nomePet" class="form-label">Nome do pet *</label>
+                                    <input type="text" class="form-control" id="nomePet" name="nomePet" placeholder="Ex.: Mel" required>
+                                    <div class="invalid-feedback">Informe o nome do pet.</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="especie" class="form-label">Espécie *</label>
+                                    <select class="form-select" id="especie" name="especie" required>
+                                        <option value="">Selecione</option>
+                                        <option value="cão">Cão</option>
+                                        <option value="gato">Gato</option>
+                                        <option value="outro">Outro</option>
+                                    </select>
+                                    <div class="invalid-feedback">Selecione a espécie.</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="raca" class="form-label">Raça *</label>
+                                    <input type="text" class="form-control" id="raca" name="raca" placeholder="Ex.: sem raça definida" required>
+                                    <div class="invalid-feedback">Informe a raça ou sem raça definida.</div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="idadePet" class="form-label">Idade *</label>
+                                    <input type="number" class="form-control" id="idadePet" name="idadePet" min="0" max="40" placeholder="3" required>
+                                    <div class="invalid-feedback">Informe uma idade entre 0 e 40.</div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label for="porte" class="form-label">Porte *</label>
+                                    <select class="form-select" id="porte" name="porte" required>
+                                        <option value="">Selecione</option>
+                                        <option value="pequeno">Pequeno</option>
+                                        <option value="médio">Médio</option>
+                                        <option value="grande">Grande</option>
+                                    </select>
+                                    <div class="invalid-feedback">Selecione o porte.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="observacoes" class="form-label">Observações relevantes</label>
+                                    <textarea class="form-control" id="observacoes" name="observacoes" rows="4" maxlength="500" placeholder="Informe necessidades, comportamento ou cuidados especiais"></textarea>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-section">
+                            <legend>Serviço e agendamento</legend>
+                            <div class="row g-4">
+                                <fieldset class="col-md-6 choice-group">
+                                    <legend class="form-label">Serviço *</legend>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="servico" id="servicoBanho" value="Banho" required>
+                                        <label class="form-check-label" for="servicoBanho">Banho</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="servico" id="servicoTosa" value="Tosa">
+                                        <label class="form-check-label" for="servicoTosa">Tosa</label>
+                                    </div>
+                                    <div class="invalid-feedback">Selecione banho ou tosa.</div>
+                                </fieldset>
+
+                                <fieldset class="col-md-6 choice-group">
+                                    <legend class="form-label">Modalidade *</legend>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="modalidade" id="modalidadeTelebusca" value="Tele-busca" required>
+                                        <label class="form-check-label" for="modalidadeTelebusca">Tele-busca</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="modalidade" id="modalidadeLocal" value="Entrega no local">
+                                        <label class="form-check-label" for="modalidadeLocal">Entrega do pet no local</label>
+                                    </div>
+                                    <div class="invalid-feedback">Selecione uma modalidade.</div>
+                                </fieldset>
+
+                                <div class="col-12">
+                                    <p id="mensagemModalidade" class="modality-message" aria-live="polite">Selecione uma modalidade para ver as orientações.</p>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="dataAgendamento" class="form-label">Data *</label>
+                                    <input type="date" class="form-control" id="dataAgendamento" name="dataAgendamento" required>
+                                    <div class="invalid-feedback">Escolha hoje ou uma data futura.</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="horaAgendamento" class="form-label">Horário *</label>
+                                    <input type="time" class="form-control" id="horaAgendamento" name="horaAgendamento" min="09:00" max="18:00" step="1800" aria-describedby="ajudaHorario" required>
+                                    <div id="ajudaHorario" class="form-text">Segunda a sexta, das 9h às 18h; sábado, das 9h às 13h.</div>
+                                    <div class="invalid-feedback">Escolha um horário entre 9h e 18h.</div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="confirmacaoDemonstracao" required>
+                            <label class="form-check-label" for="confirmacaoDemonstracao">
+                                Entendo que esta é uma demonstração acadêmica e que nenhum dado será enviado. *
+                            </label>
+                            <div class="invalid-feedback">Confirme que compreendeu a demonstração.</div>
+                        </div>
+
+                        <button class="btn btn-brand btn-lg" type="submit">Simular agendamento</button>
+                    </form>
+
+                    <section id="resultadoAgendamento" class="result-box mt-4" aria-live="polite" aria-atomic="true" hidden>
+                        <h2 class="h4">Resumo da simulação</h2>
+                        <p id="mensagemResultado" class="mb-0"></p>
+                    </section>
                 </div>
             </div>
         </section>
