@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegação principal">
             <div class="container">
-                <a class="navbar-brand" href="index.html">🐾 Amigo Fiel</a>
+                <a class="navbar-brand" href="index.html" aria-label="Petshop Amigo Fiel, página inicial"><span aria-hidden="true">🐾</span> Amigo Fiel</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu de navegação">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -81,6 +81,9 @@
                     <button class="carousel-control-next" type="button" data-bs-target="#carrosselPetshop" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Próximo destaque</span>
+                    </button>
+                    <button id="controleCarrossel" class="carousel-pause btn btn-light btn-sm" type="button" aria-controls="carrosselPetshop" aria-pressed="false">
+                        Pausar carrossel
                     </button>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const elementoDataHora = document.querySelector("#dataHoraAtual");
     const formulario = document.querySelector("#formAgendamento");
+    const carrossel = document.querySelector("#carrosselPetshop");
 
     if (elementoDataHora) {
         atualizarDataHora(elementoDataHora);
@@ -9,6 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (formulario) {
         configurarFormulario(formulario);
+    }
+
+    if (carrossel) {
+        configurarControleCarrossel(carrossel);
     }
 });
 
@@ -33,6 +38,32 @@ function dataLocalParaInput(data) {
     const mes = String(data.getMonth() + 1).padStart(2, "0");
     const dia = String(data.getDate()).padStart(2, "0");
     return `${ano}-${mes}-${dia}`;
+}
+
+function configurarControleCarrossel(elementoCarrossel) {
+    const botao = document.querySelector("#controleCarrossel");
+    const instancia = bootstrap.Carousel.getOrCreateInstance(elementoCarrossel);
+    let estaPausado = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function atualizarControle() {
+        botao.setAttribute("aria-pressed", String(estaPausado));
+        botao.textContent = estaPausado ? "Retomar carrossel" : "Pausar carrossel";
+    }
+
+    if (estaPausado) {
+        instancia.pause();
+    }
+    atualizarControle();
+
+    botao.addEventListener("click", () => {
+        estaPausado = !estaPausado;
+        if (estaPausado) {
+            instancia.pause();
+        } else {
+            instancia.cycle();
+        }
+        atualizarControle();
+    });
 }
 
 function configurarFormulario(formulario) {

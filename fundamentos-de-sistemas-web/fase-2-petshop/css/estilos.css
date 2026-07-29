@@ -140,6 +140,14 @@ a {
     font-weight: 800;
 }
 
+.carousel-pause {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+    font-weight: 700;
+}
+
 .card {
     border-color: var(--border-soft);
     border-radius: 1rem;
