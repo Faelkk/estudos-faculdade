@@ -52,4 +52,4 @@ Esta fase utiliza somente HTML. Não foram utilizados CSS, Bootstrap, JavaScript
 
 ## Site publicado
 
-O link do GitHub Pages será incluído após a publicação autorizada do projeto.
+[Acesse o Petshop Amigo Fiel no GitHub Pages](https://faelkk.github.io/estudos-faculdade/fundamentos-de-sistemas-web/fase-1-petshop/).
