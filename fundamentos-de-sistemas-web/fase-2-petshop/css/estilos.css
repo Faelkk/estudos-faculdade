@@ -111,6 +111,35 @@ a {
     font-weight: 800;
 }
 
+.carousel {
+    overflow: hidden;
+    background: var(--brand-navy-dark);
+    border-radius: 1rem;
+    box-shadow: 0 0.8rem 2rem rgb(23 50 77 / 16%);
+}
+
+.carousel-item img {
+    height: clamp(22rem, 54vw, 34rem);
+    object-fit: cover;
+}
+
+.carousel-item::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: linear-gradient(0deg, rgb(13 36 56 / 88%), transparent 62%);
+}
+
+.carousel-caption {
+    z-index: 1;
+    text-align: left;
+}
+
+.carousel-caption h3 {
+    font-size: clamp(1.5rem, 4vw, 2.35rem);
+    font-weight: 800;
+}
+
 .card {
     border-color: var(--border-soft);
     border-radius: 1rem;
